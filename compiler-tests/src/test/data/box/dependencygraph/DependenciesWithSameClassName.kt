@@ -1,19 +1,17 @@
 // MODULE: lib
 package otherpackage
 
-@ContributesBinding(AppScope::class)
 @Inject
 class Dependency
 
 // MODULE: main(lib)
 package thispackage
 
-@ContributesBinding(AppScope::class)
 @Inject
 class Dependency
 
 
-@DependencyGraph(AppScope::class)
+@DependencyGraph
 interface AppGraph {
     val thisDependency: thispackage.Dependency
     val otherDependency: otherpackage.Dependency
